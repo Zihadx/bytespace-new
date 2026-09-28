@@ -1,0 +1,1 @@
+// NavLink, FooterColumn types.

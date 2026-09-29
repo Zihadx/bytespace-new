@@ -22,37 +22,44 @@ const testimonials = [
   },
 ];
 
+// shared font helpers so the JSX stays short
+const poppins = "font-[family-name:var(--font-poppins)]";
+const outfit = "font-[family-name:var(--font-outfit)]";
+
 const Testimonials = () => {
   return (
-    <section className="relative overflow-hidden bg-[#fafafa] px-6 py-25 h-[744px]">
-      {/* Background spotlight: blurred blobs, positioned in px from the top */}
+    <section className="relative overflow-hidden bg-[#fafafa] px-5 py-16 sm:px-6 sm:py-20 lg:h-[744px] lg:py-[100px]">
+      {/* Background glows (percent on mobile so they follow the content, px on desktop) */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 overflow-hidden"
       >
-        {/* Main lime glow — behind the intro, slightly left of the paragraph */}
-        <div className="absolute left-1/2 top-[225px] h-[250px] w-[380px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#d7ff3c] opacity-90 blur-[90px]" />
+        {/* Lime glow behind the intro */}
+        <div className="absolute left-1/2 top-[12%] h-[200px] w-[280px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#d7ff3c] opacity-90 blur-[70px] lg:top-[225px] lg:h-[250px] lg:w-[380px] lg:blur-[90px]" />
 
-        {/* Right-edge lime glow — beside the third card */}
-        <div className="absolute right-0 top-[335px] h-[280px] w-[260px] translate-x-1/2 -translate-y-1/2 rounded-full bg-[#d7ff3c] opacity-80 blur-[75px]" />
+        {/* Lime glow on the right edge */}
+        <div className="absolute right-0 top-[55%] h-[220px] w-[200px] translate-x-1/2 -translate-y-1/2 rounded-full bg-[#d7ff3c] opacity-70 blur-[70px] lg:top-[335px] lg:h-[280px] lg:w-[260px] lg:opacity-80 lg:blur-[75px]" />
 
-        {/* Faint lime wash — top-right corner */}
-        <div className="absolute right-[-40px] top-[20px] h-[200px] w-[320px] rounded-full bg-[#d7ff3c] opacity-35 blur-[90px]" />
+        {/* Faint lime wash, top right */}
+        <div className="absolute right-[-40px] top-[20px] h-[160px] w-[240px] rounded-full bg-[#d7ff3c] opacity-35 blur-[80px] lg:h-[200px] lg:w-[320px] lg:blur-[90px]" />
 
-        {/* Blue glow — bottom-left corner */}
-        <div className="absolute left-[30px] top-[700px] h-[400px] w-[380px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#7f9cf0] opacity-50 blur-[90px]" />
+        {/* Blue glow, bottom left */}
+        <div className="absolute left-[30px] top-[92%] h-[300px] w-[280px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#7f9cf0] opacity-50 blur-[80px] lg:top-[700px] lg:h-[400px] lg:w-[380px] lg:blur-[90px]" />
       </div>
 
-      <div className="relative z-10 custom-container">
-        {/* Intro: heading + paragraph, bottom-aligned on desktop */}
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-end lg:gap-x-9">
-          <h2 className="font-[family-name:var(--font-poppins)] text-[44px] font-semibold leading-[1.2] tracking-[-0.02em] text-black">
+      <div className="custom-container relative z-10">
+        {/* Intro */}
+        <div className="grid grid-cols-1 gap-5 lg:grid-cols-2 lg:items-end lg:gap-x-9 lg:gap-y-10">
+          <h2
+            className={`${poppins} text-[30px] font-semibold leading-[1.2] tracking-[-0.02em] text-black sm:text-[36px] lg:text-[44px]`}
+          >
             Discover What Our
-            <br />
-            Community Is Saying
+            <br className="hidden sm:block" /> Community Is Saying
           </h2>
 
-          <p className="max-w-[570px] font-[family-name:var(--font-outfit)] text-[18px] font-light leading-[1.6] text-[#555]">
+          <p
+            className={`${outfit} max-w-[570px] text-base font-light leading-[1.6] text-[#4F4F4F] lg:text-[18px]`}
+          >
             At ByteSpace, our vibrant community of learners and creators is at
             the heart of what we do. Hear directly from those who have
             experienced the transformative journey of learning and creating on
@@ -61,26 +68,38 @@ const Testimonials = () => {
           </p>
         </div>
 
-        {/* Cards: natural height (no stretch), 40px gap */}
-        <div className="mt-[72px] grid grid-cols-1 items-start gap-10 md:grid-cols-3">
-          {testimonials.map((t) => (
-            <article key={t.name} className="rounded-[28px] bg-white p-6">
+        {/* Cards: stacked on mobile, 3 columns from md */}
+        <div className="mt-10 grid grid-cols-1 items-start gap-5 sm:mx-auto sm:max-w-[560px] md:mt-12 md:max-w-none md:grid-cols-3 md:gap-5 lg:mt-[72px] lg:gap-10">
+          {testimonials.map(({ name, role, image, text }) => (
+            <article
+              key={name}
+              className="rounded-3xl bg-white p-5 lg:rounded-[28px] lg:p-6"
+            >
               <img
-                src={t.image}
-                alt={t.name}
-                className="h-20 w-20 rounded-full object-cover"
+                src={image}
+                alt={name}
+                width={80}
+                height={80}
+                loading="lazy"
+                className="h-16 w-16 rounded-full object-cover lg:h-20 lg:w-20"
               />
 
-              <h3 className="mt-6 font-[family-name:var(--font-poppins)] text-[20px] font-semibold leading-7 text-black">
-                {t.name}
+              <h3
+                className={`${poppins} mt-5 text-lg font-semibold leading-7 text-black lg:mt-6 lg:text-[20px]`}
+              >
+                {name}
               </h3>
 
-              <p className="font-[family-name:var(--font-outfit)] text-[18px] font-normal leading-7 text-[#1a47d9]">
-                {t.role}
+              <p
+                className={`${outfit} text-base font-normal leading-7 text-[#003BE2] lg:text-[18px]`}
+              >
+                {role}
               </p>
 
-              <p className="mt-[26px] font-[family-name:var(--font-outfit)] text-[18px] font-light leading-[1.6] text-[#555]">
-                {t.text}
+              <p
+                className={`${outfit} mt-4 text-[15px] font-light leading-[1.6] text-[#4F4F4F] lg:mt-[26px] lg:text-[18px]`}
+              >
+                {text}
               </p>
             </article>
           ))}

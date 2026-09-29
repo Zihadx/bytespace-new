@@ -10,7 +10,7 @@ const companies = [
 
 const Partnership = () => {
   return (
-    <section className=" bg-[#F4F4F4]">
+    <section className=" bg-[#F5F5F6]">
       <div className="custom-container flex h-50.5 w-full items-center justify-between">
         {companies.map((src) => (
           <Image

@@ -11,8 +11,8 @@ const Home = () => {
     <div>
       <Hero />
       <Partnership />
-      <Categories />
       <FeaturedCourses/>
+      <Categories />
       <GrowthPath />
       <CreatorCTA/>
       <Testimonials/>

@@ -19,21 +19,25 @@ const bg = `
   radial-gradient(ellipse 470px 430px at 100% 4%, rgba(220,225,248,0.6), transparent),
   radial-gradient(ellipse 480px 500px at 0% 46%, rgba(205,217,249,0.7), transparent),
   radial-gradient(ellipse 430px 430px at 5% 85%, rgba(220,255,105,0.7), transparent),
-  radial-gradient(ellipse 520px 470px at 85% 90%, rgba(205,217,249, 0.9), transparent)
+  radial-gradient(ellipse 520px 470px at 85% 90%, rgba(205,217,248,0.9), transparent)
 `;
 
 export default function GrowthPath() {
   return (
-    <section className="bg-[#fafafa] px-6 pt-25" style={{ backgroundImage: bg }}>
+    <section
+      className="bg-[#fafafa] px-5 py-16 sm:px-8 sm:pt-20 md:px-10 md:pt-24 lg:px-6 lg:pt-25"
+      style={{ backgroundImage: bg }}
+    >
       <div className="custom-container mx-auto">
-        {/* ======first row========*/}
-        <div className="flex flex-col gap-5 md:flex-row md:justify-between">
-          <div className="w-full space-y-10 md:w-1/2">
-            <h2 className="text-[44px] font-semibold leading-[1.1] text-[#202124]">
+        {/* First Row */}
+        <div className="flex flex-col items-center gap-12 md:flex-row md:items-center md:justify-between md:gap-8">
+          {/* Content */}
+          <div className="w-full md:w-[48%]">
+            <h2 className="text-[32px] font-semibold leading-[1.15] text-[#242528] sm:text-[38px] md:text-[40px] lg:text-[44px] lg:leading-[1.1]">
               Your Path to Professional Growth Starts Here!
             </h2>
 
-            <p className="text-base leading-7 text-[#5c5c61]">
+            <p className="mt-6 text-[18px] leading-6 text-[#4B4C53] lg:mt-8">
               Explore our curated selection of courses tailored to enhance your
               capabilities and accelerate your career journey. Whether you are
               looking to sharpen specific skills, gain industry expertise, or
@@ -41,57 +45,67 @@ export default function GrowthPath() {
               need.
             </p>
 
-            <div className="flex gap-14">
+            {/* Stats */}
+            <div className="mt-8 flex flex-wrap gap-x-10 gap-y-6 sm:mt-10 sm:gap-x-14">
               {stats.map((stat) => (
                 <div key={stat.label}>
-                  <h3 className="text-3xl font-medium text-[#0b3bf0]">
+                  <h3 className="text-2xl font-medium text-[#0b3bf0] sm:text-3xl">
                     {stat.value}
                   </h3>
-                  <p className="mt-2 text-[#55565b]">{stat.label}</p>
+
+                  <p className="mt-1 text-sm text-[#55565b] sm:mt-2 sm:text-base">
+                    {stat.label}
+                  </p>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="flex w-full justify-end md:w-1/2">
+          {/* Image */}
+          <div className="flex w-full justify-center md:w-[48%] md:justify-end">
             <Image
               src="/images/growth-image-1.png"
               alt="Student learning online"
               width={580}
               height={552}
-              className="h-138"
+              className="h-auto w-full max-w-[580px]"
             />
           </div>
         </div>
 
-        {/* ========second row==== */}
-        <div className="flex flex-col items-center gap-5 md:flex-row md:justify-between">
-          <div className="flex w-full justify-start md:w-1/2">
+        {/* Second Row */}
+        <div className="mt-16 flex flex-col items-center gap-12 sm:mt-20 md:mt-24 md:flex-row md:justify-between md:gap-8">
+          {/* Image */}
+          <div className="flex w-full justify-center md:w-[48%] md:justify-start">
             <Image
               src="/images/growth-image-2.png"
               alt="Creator managing courses"
               width={580}
               height={552}
-              className="h-149"
+              className="h-auto w-full max-w-[580px]"
             />
           </div>
 
-          <div className="w-full space-y-10 md:w-1/2">
-            <h2 className="text-[44px] font-semibold leading-[1.1] text-[#202124]">
+          {/* Content */}
+          <div className="w-full md:w-[48%]">
+            <h2 className="text-[44px] font-semibold leading-[1.15] text-[#242528]">
               Create &amp; Manage Courses Easily.
             </h2>
 
-            <p className="text-lg leading-7 text-[#5c5c61]">
-              <span className="font-semibold text-[#202124]">ByteSpace</span>{" "}
-              supports individuals or entities in the creation, publication, and
-              administration of educational courses.
+            <p className="mt-6 text-[18px] leading-7 text-[#4B4C53] lg:mt-8">
+              <span className="font-semibold text-[#242528]">ByteSpace</span>{" "}
+              supports individuals or entities in the creation, publication,
+              and administration of educational courses.
             </p>
 
-            <ul className="space-y-4">
+            <ul className="mt-7 space-y-4 sm:mt-8">
               {features.map((feature) => (
-                <li key={feature} className="flex items-center gap-2 text-lg">
-                  <CircleCheck className="size-5 fill-[#0b3bf0] text-white" />
-                  {feature}
+                <li
+                  key={feature}
+                  className="flex items-center gap-3 text-[18px] text-[#242528] sm:text-lg"
+                >
+                  <CircleCheck className="size-5 shrink-0 fill-[#0b3bf0] text-white sm:size-6" />
+                  <span>{feature}</span>
                 </li>
               ))}
             </ul>

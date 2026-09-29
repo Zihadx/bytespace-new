@@ -1,5 +1,5 @@
 export const colors = {
-  primary: "",
+  primary: "#CBFC01",
   secondary: "",
   background: "",
   foreground: "",
@@ -28,11 +28,12 @@ export const typography = {
   },
 
   fontSize: {
-    xs: "",
-    sm: "",
-    base: "",
-    lg: "",
-    xl: "",
-    heading: "",
+    base: "16px",
+    headingL: "72px",
+    headingM: "44px",
+    headingS: "36px",
+    bodyL: "18px",
+    bodyM: "16px",
+    LabelXL: "20px"
   },
 } as const;

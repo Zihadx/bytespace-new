@@ -55,15 +55,15 @@ const Footer = () => {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="h-[52px] w-[376px] rounded-full border border-gray-300 px-6 text-[16px] leading-6 outline-none placeholder:text-gray-600"
+                className="h-13 w-94 rounded-full border border-gray-300 px-6 text-[16px] leading-6 outline-none placeholder:text-gray-600"
               />
 
-              <button className="h-[46px] w-[104px] rounded-full bg-[#CBFC01] text-[16px] font-normal leading-6 text-black">
+              <button className="h-11.5 w-26 rounded-full bg-[#CBFC01] text-[16px] font-normal leading-6 text-black">
                 Search
               </button>
             </div>
 
-            <p className="mt-6 max-w-[470px] text-[12px] leading-5">
+            <p className="mt-6 text-[12px]">
               By subscribing, you agree to our Privacy Policy and consent to
               receive updates from our company.
             </p>
@@ -71,7 +71,7 @@ const Footer = () => {
 
           {/* =================link columns ==============*/}
           <div className="mt-10 flex w-full flex-col items-center justify-between gap-10 md:flex-row lg:w-1/2">
-            <ul className="flex flex-col gap-[18px] text-[16px] leading-5">
+            <ul className="flex flex-col gap-4.5 text-[16px]">
               {column1.map((item) => (
                 <li key={item}>
                   <Link
@@ -84,7 +84,7 @@ const Footer = () => {
               ))}
             </ul>
 
-            <ul className="flex flex-col gap-[18px] text-[16px] leading-5">
+            <ul className="flex flex-col gap-4.5 text-[16px] leading-5">
               {column2.map((item) => (
                 <li key={item}>
                   <Link
@@ -97,7 +97,7 @@ const Footer = () => {
               ))}
             </ul>
 
-            <ul className="flex flex-col gap-[18px] text-[16px] leading-5">
+            <ul className="flex flex-col gap-4.5 text-[16px]">
               {column3.map((item) => (
                 <li key={item}>
                   <Link

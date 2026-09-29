@@ -34,6 +34,7 @@ export const typography = {
     headingS: "36px",
     bodyL: "18px",
     bodyM: "16px",
+    bodyS: "12px",
     LabelXL: "20px"
   },
 } as const;

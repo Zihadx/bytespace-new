@@ -1,1 +1,0 @@
-// 'Create & Manage' checklist items.

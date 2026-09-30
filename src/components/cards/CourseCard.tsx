@@ -1,5 +1,11 @@
 import Image from "next/image";
+import { Outfit } from "next/font/google";
 import { Course } from "@/src/types/course";
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
 
 interface CourseCardProps {
   course: Course;
@@ -7,9 +13,11 @@ interface CourseCardProps {
 
 const CourseCard = ({ course }: CourseCardProps) => {
   return (
-    <article className="group overflow-hidden rounded-2xl border border-[#E8E8EB] bg-white transition-all duration-300 hover:-translate-y-1 hover:border-[#DCDCE1] hover:shadow-[0_16px_40px_rgba(11,13,33,0.08)]">
-      {/* Course Image */}
-      <div className="relative aspect-[16/10] overflow-hidden bg-[#F4F4F5]">
+    <article
+      className={`${outfit.className} group w-full rounded-[28px] border border-[#DEDEE2] bg-white p-3.5 pb-5 transition-shadow duration-300 hover:shadow-[0_16px_40px_rgba(11,13,33,0.08)]`}
+    >
+      {/*========== Course Image =============*/}
+      <div className="relative aspect-[7/4] overflow-hidden rounded-[18px] bg-[#F4F4F5]">
         <Image
           src={course.image}
           alt={course.title}
@@ -18,143 +26,108 @@ const CourseCard = ({ course }: CourseCardProps) => {
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
 
-        {/* Image Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+        {/* ==========Course Stats============= */}
+        <div className="absolute inset-x-3 bottom-3 flex items-center justify-between gap-1.5">
+          <span className="whitespace-nowrap rounded-full bg-white/75 px-3 py-[5px] text-[12px] font-medium leading-4 text-[#4A4A52] backdrop-blur-md">
+            {course.lessons} Lessons
+          </span>
 
-        {/* Level Badge */}
-        <div className="absolute left-4 top-4">
-          <span className="rounded-full bg-white/95 px-3 py-1.5 text-xs font-semibold text-[#171717] shadow-sm backdrop-blur-sm">
-            {course.level}
+          <span className="whitespace-nowrap rounded-full bg-white/75 px-3 py-[5px] text-[12px] font-medium leading-4 text-[#4A4A52] backdrop-blur-md">
+            {course.duration}
+          </span>
+
+          <span className="whitespace-nowrap rounded-full bg-white/75 px-3 py-[5px] text-[12px] font-medium leading-4 text-[#4A4A52] backdrop-blur-md">
+            {course.comments} Comments
           </span>
         </div>
       </div>
 
-      {/* Content */}
-      <div className="p-5">
-        {/* Instructor */}
-        <div className="mb-3 flex items-center justify-between gap-3">
-          <div className="flex min-w-0 items-center gap-2">
-            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#B7F500] text-xs font-bold text-[#171717]">
-              {course.instructor.charAt(0).toUpperCase()}
-            </div>
+      {/* ===========Content============= */}
+      <div className="mt-4">
+        {/* ==========Title + Rating =============*/}
+        <div className="flex items-start justify-between gap-3">
+          <div className="min-w-0 flex-1">
+            <h3 className="line-clamp-2 text-[21px] font-bold leading-6 tracking-[-0.01em] text-black">
+              {course.title}
+            </h3>
 
-            <div className="min-w-0">
-              <p className="truncate text-sm font-medium text-[#30303A]">
+            <p className="mt-1 text-[12px] leading-4 text-[#6B6B73]">
+              by{" "}
+              <span className="font-medium text-[#0B3DE6]">
                 {course.instructor}
-              </p>
-            </div>
+              </span>
+            </p>
           </div>
 
-          {course.additionalInstructors && (
-            <span className="shrink-0 text-xs font-medium text-gray-400">
-              +{course.additionalInstructors.replace("+", "")}
+          <div className="flex shrink-0 items-center gap-1.5 pt-0.5">
+            <span className="text-[19px] font-normal leading-6 text-[#6B6B73]">
+              {course.rating.toFixed(1)}
             </span>
-          )}
-        </div>
 
-        {/* Rating */}
-        <div className="mb-3 flex items-center gap-2">
-          <div className="flex items-center gap-1">
             <svg
-              width="15"
-              height="15"
+              width="19"
+              height="19"
               viewBox="0 0 24 24"
               fill="currentColor"
-              className="text-[#F5B301]"
+              className="text-[#C9CBD1]"
               aria-hidden="true"
             >
               <path d="M12 2.5l2.94 5.95 6.56.95-4.75 4.63 1.12 6.54L12 17.48l-5.87 3.09 1.12-6.54L2.5 9.4l6.56-.95L12 2.5z" />
             </svg>
+          </div>
+        </div>
 
-            <span className="text-sm font-semibold text-[#171717]">
-              {course.rating.toFixed(1)}
+        {/* ============Level + Students========== */}
+        <div className="mt-4 flex items-center justify-between gap-2">
+          {/*========= Level============= */}
+          <span className="inline-flex h-[34px] items-center gap-2 rounded-full bg-[#F3F3F5] px-4 text-[13px] font-medium text-[#55555D]">
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.2"
+              strokeLinecap="round"
+              aria-hidden="true"
+            >
+              <path d="M4 20v-8" />
+              <path d="M10 20V4" />
+              <path d="M16 20v-9" />
+            </svg>
+
+            {course.level}
+          </span>
+
+          {/* =============Students============== */}
+          <div className="flex items-center">
+            {course.studentAvatars.map((avatar, index) => (
+              <div key={index} className={index > 0 ? "-ml-2.5" : ""}>
+                <Image
+                  src={avatar}
+                  alt=""
+                  width={32}
+                  height={32}
+                  className="h-8 w-8 rounded-full border-2 border-white object-cover"
+                />
+              </div>
+            ))}
+
+            <span className="-ml-2.5 flex h-[34px] w-[34px] items-center justify-center rounded-full border-2 border-white bg-[#D4F52B] text-[12px] font-medium text-[#1A1A1A]">
+              {course.additionalStudents}
             </span>
           </div>
-
-          <span className="text-xs text-gray-400">
-            ({course.comments} reviews)
-          </span>
         </div>
 
-        {/* Title */}
-        <h3 className="line-clamp-2 min-h-[56px] text-lg font-semibold leading-7 tracking-tight text-[#0B0D21] transition-colors duration-200 group-hover:text-[#45454F]">
-          {course.title}
-        </h3>
-
-        {/* Course Meta */}
-        <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-gray-500">
-          <span className="flex items-center gap-1.5">
-            <svg
-              width="15"
-              height="15"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.8"
-              aria-hidden="true"
-            >
-              <path d="M4 5.5A2.5 2.5 0 016.5 3H20v17H6.5A2.5 2.5 0 014 17.5v-12z" />
-              <path d="M4 17.5A2.5 2.5 0 016.5 15H20" />
-            </svg>
-
-            {course.lessons} Lessons
+        {/* ===========Price========== */}
+        <div className="mt-4 flex items-baseline gap-0.5">
+          <span className="text-[22px] font-bold leading-7 text-[#0B3DE6]">
+            ${course.price}
           </span>
 
-          <span className="flex items-center gap-1.5">
-            <svg
-              width="15"
-              height="15"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.8"
-              aria-hidden="true"
-            >
-              <circle cx="12" cy="12" r="9" />
-              <path d="M12 7v5l3 2" />
-            </svg>
-
-            {course.duration}
+          <span className="text-[12px] font-normal text-[#6B6B73]">
+            {course.priceType}
           </span>
-        </div>
-
-        {/* Divider */}
-        <div className="my-5 h-px w-full bg-[#EEEEF0]" />
-
-        {/* Bottom */}
-        <div className="flex items-end justify-between gap-4">
-          <div>
-            <p className="mb-1 text-xs font-medium text-gray-400">
-              {course.priceType === "lifetime"
-                ? "Lifetime access"
-                : course.priceType}
-            </p>
-
-            <p className="text-2xl font-bold tracking-tight text-[#0B0D21]">
-              ${course.price}
-            </p>
-          </div>
-
-          <button
-            type="button"
-            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#0B0D21] text-white transition-all duration-300 hover:bg-[#B7F500] hover:text-[#171717] focus:outline-none focus:ring-2 focus:ring-[#0B0D21] focus:ring-offset-2"
-            aria-label={`View ${course.title}`}
-          >
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M5 12h14" />
-              <path d="M13 6l6 6-6 6" />
-            </svg>
-          </button>
         </div>
       </div>
     </article>

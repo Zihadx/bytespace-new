@@ -25,7 +25,7 @@ const FeaturedCourses = () => {
   return (
     <section className="w-full bg-white px-5 py-16 md:px-10 lg:px-16">
       <div className="mx-auto custom-container">
-        {/* Section Header */}
+        {/* =======Section Header======== */}
         <div className="mx-auto mb-9 max-w-3xl text-center">
           <h1 className="text-3xl font-bold leading-tight tracking-tight text-[#0B0D21] md:text-4xl lg:text-[40px]">
             Discover Your Passion,
@@ -41,7 +41,7 @@ const FeaturedCourses = () => {
           </p>
         </div>
 
-        {/* Category Filters */}
+        {/* ======Category Filters ==========*/}
         <div className="mx-auto mb-16 flex max-w-5xl flex-wrap items-center justify-center gap-3">
           {visibleCategories.map((category) => {
             const isActive = activeCategory === category.id;
@@ -85,7 +85,7 @@ const FeaturedCourses = () => {
           )}
         </div>
 
-        {/* Course Grid */}
+        {/* =======Course Grid========= */}
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-10">
           {courses.map((course) => (
             <CourseCard key={course.id} course={course} />

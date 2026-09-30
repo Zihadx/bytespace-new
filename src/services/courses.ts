@@ -13,8 +13,6 @@ export const getAllCourses = (): Course[] => {
   return courses;
 };
 
-export const getCourseById = (
-  id: number
-): Course | undefined => {
+export const getCourseById = (id: number): Course | undefined => {
   return courses.find((course) => course.id === id);
 };

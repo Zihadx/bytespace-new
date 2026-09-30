@@ -1,23 +1,21 @@
 import Image from "next/image";
-import { Outfit } from "next/font/google";
 import { Course } from "@/src/types/course";
-
-const outfit = Outfit({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
 
 interface CourseCardProps {
   course: Course;
 }
 
-const CourseCard = ({ course }: CourseCardProps) => {
+function CourseCard({ course }: CourseCardProps) {
+  const stats = [
+    `${course.lessons} Lessons`,
+    course.duration,
+    `${course.comments} Comments`,
+  ];
+
   return (
-    <article
-      className={`${outfit.className} group w-full rounded-[28px] border border-[#DEDEE2] bg-white p-3.5 pb-5 transition-shadow duration-300 hover:shadow-[0_16px_40px_rgba(11,13,33,0.08)]`}
-    >
-      {/*========== Course Image =============*/}
-      <div className="relative aspect-[7/4] overflow-hidden rounded-[18px] bg-[#F4F4F5]">
+    <article className="group w-full rounded-[28px] border border-[#DEDEE2] bg-white p-3.5 pb-5 transition-shadow duration-300 hover:shadow-[0_16px_40px_rgba(11,13,33,0.08)]">
+      {/*=============== Course image ============*/}
+      <div className="relative aspect-7/4 overflow-hidden rounded-[18px] bg-[#F4F4F5]">
         <Image
           src={course.image}
           alt={course.title}
@@ -26,25 +24,20 @@ const CourseCard = ({ course }: CourseCardProps) => {
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
 
-        {/* ==========Course Stats============= */}
         <div className="absolute inset-x-3 bottom-3 flex items-center justify-between gap-1.5">
-          <span className="whitespace-nowrap rounded-full bg-white/75 px-3 py-[5px] text-[12px] font-medium leading-4 text-[#4A4A52] backdrop-blur-md">
-            {course.lessons} Lessons
-          </span>
-
-          <span className="whitespace-nowrap rounded-full bg-white/75 px-3 py-[5px] text-[12px] font-medium leading-4 text-[#4A4A52] backdrop-blur-md">
-            {course.duration}
-          </span>
-
-          <span className="whitespace-nowrap rounded-full bg-white/75 px-3 py-[5px] text-[12px] font-medium leading-4 text-[#4A4A52] backdrop-blur-md">
-            {course.comments} Comments
-          </span>
+          {stats.map((stat) => (
+            <span
+              key={stat}
+              className="whitespace-nowrap rounded-full bg-white/75 px-3 py-1.25 text-[12px] font-medium leading-4 text-[#4A4A52] backdrop-blur-md"
+            >
+              {stat}
+            </span>
+          ))}
         </div>
       </div>
 
-      {/* ===========Content============= */}
       <div className="mt-4">
-        {/* ==========Title + Rating =============*/}
+        {/* ==============Title and rating =================*/}
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0 flex-1">
             <h3 className="line-clamp-2 text-[21px] font-bold leading-6 tracking-[-0.01em] text-black">
@@ -77,10 +70,9 @@ const CourseCard = ({ course }: CourseCardProps) => {
           </div>
         </div>
 
-        {/* ============Level + Students========== */}
+        {/* ===========Level and students==============*/}
         <div className="mt-4 flex items-center justify-between gap-2">
-          {/*========= Level============= */}
-          <span className="inline-flex h-[34px] items-center gap-2 rounded-full bg-[#F3F3F5] px-4 text-[13px] font-medium text-[#55555D]">
+          <span className="inline-flex h-8.5 items-center gap-2 rounded-full bg-[#F3F3F5] px-4 text-[13px] font-medium text-[#55555D]">
             <svg
               width="14"
               height="14"
@@ -99,7 +91,6 @@ const CourseCard = ({ course }: CourseCardProps) => {
             {course.level}
           </span>
 
-          {/* =============Students============== */}
           <div className="flex items-center">
             {course.studentAvatars.map((avatar, index) => (
               <div key={index} className={index > 0 ? "-ml-2.5" : ""}>
@@ -113,13 +104,13 @@ const CourseCard = ({ course }: CourseCardProps) => {
               </div>
             ))}
 
-            <span className="-ml-2.5 flex h-[34px] w-[34px] items-center justify-center rounded-full border-2 border-white bg-[#D4F52B] text-[12px] font-medium text-[#1A1A1A]">
+            <span className="-ml-2.5 flex h-8.5 w-8.5 items-center justify-center rounded-full border-2 border-white bg-[#D4F52B] text-[12px] font-medium text-[#1A1A1A]">
               {course.additionalStudents}
             </span>
           </div>
         </div>
 
-        {/* ===========Price========== */}
+        {/* ======Price ================*/}
         <div className="mt-4 flex items-baseline gap-0.5">
           <span className="text-[22px] font-bold leading-7 text-[#0B3DE6]">
             ${course.price}
@@ -132,6 +123,6 @@ const CourseCard = ({ course }: CourseCardProps) => {
       </div>
     </article>
   );
-};
+}
 
 export default CourseCard;

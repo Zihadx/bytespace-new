@@ -14,7 +14,7 @@ const features = [
   "Build a Community",
 ];
 
-const bg = `
+const backgroundGradients = `
   radial-gradient(ellipse 520px 430px at 27% 4%, rgba(225,255,115,0.7), transparent),
   radial-gradient(ellipse 470px 430px at 100% 4%, rgba(220,225,248,0.6), transparent),
   radial-gradient(ellipse 480px 500px at 0% 46%, rgba(205,217,249,0.7), transparent),
@@ -26,12 +26,11 @@ export default function GrowthPath() {
   return (
     <section
       className="bg-[#fafafa] px-5 py-16 sm:px-8 sm:pt-20 md:px-10 md:pt-24 lg:px-6 lg:pt-25"
-      style={{ backgroundImage: bg }}
+      style={{ backgroundImage: backgroundGradients }}
     >
       <div className="custom-container mx-auto">
-        {/* First Row */}
+        {/* ==============First row============= */}
         <div className="flex flex-col items-center gap-12 md:flex-row md:items-center md:justify-between md:gap-8">
-          {/* Content */}
           <div className="w-full md:w-[48%]">
             <h2 className="text-[32px] font-semibold leading-[1.15] text-[#242528] sm:text-[38px] md:text-[40px] lg:text-[44px] lg:leading-[1.1]">
               Your Path to Professional Growth Starts Here!
@@ -45,7 +44,6 @@ export default function GrowthPath() {
               need.
             </p>
 
-            {/* Stats */}
             <div className="mt-8 flex flex-wrap gap-x-10 gap-y-6 sm:mt-10 sm:gap-x-14">
               {stats.map((stat) => (
                 <div key={stat.label}>
@@ -61,32 +59,29 @@ export default function GrowthPath() {
             </div>
           </div>
 
-          {/* Image */}
           <div className="flex w-full justify-center md:w-[48%] md:justify-end">
             <Image
               src="/images/growth-image-1.png"
               alt="Student learning online"
               width={580}
               height={552}
-              className="h-auto w-full max-w-[580px]"
+              className="h-auto w-full max-w-145"
             />
           </div>
         </div>
 
-        {/* Second Row */}
+        {/* ==============Second row============ */}
         <div className="mt-16 flex flex-col items-center gap-12 sm:mt-20 md:mt-24 md:flex-row md:justify-between md:gap-8">
-          {/* Image */}
           <div className="flex w-full justify-center md:w-[48%] md:justify-start">
             <Image
               src="/images/growth-image-2.png"
               alt="Creator managing courses"
               width={580}
               height={552}
-              className="h-auto w-full max-w-[580px]"
+              className="h-auto w-full max-w-145"
             />
           </div>
 
-          {/* Content */}
           <div className="w-full md:w-[48%]">
             <h2 className="text-[44px] font-semibold leading-[1.15] text-[#242528]">
               Create &amp; Manage Courses Easily.

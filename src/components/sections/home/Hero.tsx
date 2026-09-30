@@ -1,97 +1,82 @@
 import Image from "next/image";
 import { Search } from "lucide-react";
-import { Poppins, Inter } from "next/font/google";
 
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["600"],
-});
+const gridBackground = {
+  backgroundImage:
+    "linear-gradient(rgba(255,255,255,0.1) 2px, transparent 2px), linear-gradient(90deg, rgba(255,255,255,0.1) 2px, transparent 2px)",
+  backgroundSize: "8.333vw 8.333vw",
+};
 
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["300", "400", "500"],
-});
-
-const Hero = () => {
+function Hero() {
   return (
     <section
       className="relative w-full overflow-hidden bg-[#0038E1] pt-8 lg:pt-[10.8%]"
-      style={{
-        backgroundImage:
-          "linear-gradient(rgba(255,255,255,0.1) 2px, transparent 2px), linear-gradient(90deg, rgba(255,255,255,0.1) 2px, transparent 2px)",
-        backgroundSize: "8.333vw 8.333vw",
-      }}
+      style={gridBackground}
     >
       <div
         className="
           relative
-          min-h-[480px]
+          min-h-120
           w-full
           px-5
-          sm:min-h-[480px]
           lg:min-h-0
-          lg:aspect-[1442/873]
+          lg:aspect-1442/873
           lg:px-0
         "
       >
-        {/* Heading */}
+        {/*================ Heading============== */}
         <h1
-          className={`
-            ${poppins.className}
-            relative z-10 mx-auto
+          className="
+            relative z-10 mx-auto mt-20
             max-w-175
             text-center text-[34px]
             font-semibold leading-[1.08]
             tracking-[-0.02em] text-white
             sm:text-[46px]
             lg:absolute lg:left-0 lg:top-[1.4%]
-            lg:w-full lg:max-w-none
+            lg:mt-0 lg:w-full lg:max-w-none
             lg:px-0 lg:text-[5vw]
             lg:leading-[5.9vw]
             lg:tracking-[-0.011em]
-            mt-20
-            lg:mt-0
-          `}
+          "
         >
           Get Access to Hundreds
           <br />
           Courses Available
         </h1>
 
-        {/* Description */}
+        {/*============== Description========== */}
         <p
-          className={`
-            ${inter.className}
+          className="
             relative z-10
             mx-auto mt-5
-            max-w-[560px]
-            text-center text-[14px]
-            font-light leading-6 text-white
-            sm:mt-6 sm:text-[16px]
+            max-w-140
+            text-center text-[18px]
+            leading-6 text-white
             lg:absolute lg:left-0 lg:top-[25.2%]
             lg:mt-0 lg:w-full lg:max-w-none
             lg:text-[1.14vw]
             lg:leading-[1.66vw]
-          `}
+          "
         >
           Unlock your creativity, gain valuable knowledge, and grow your
           business with our wide range of courses.
         </p>
 
-        {/* Search */}
+        {/* ==================Search ==============*/}
         <div
           className="
             relative z-20 mx-auto mt-6
-            flex h-11 w-full max-w-[500px] gap-2
+            flex h-11 w-full max-w-125 gap-2
             sm:mt-7 sm:h-12
             lg:absolute lg:left-[30%] lg:top-[35%]
             lg:mt-0 lg:block lg:h-[3.6vw]
             lg:w-[31.9%] lg:max-w-none
           "
         >
-          {/* Input */}
           <div className="relative flex-1 lg:h-full lg:w-full">
             <Search
+              aria-hidden="true"
               className="
                 absolute left-4 top-1/2 size-5
                 -translate-y-1/2 text-[#6B7280]
@@ -102,8 +87,8 @@ const Hero = () => {
             <input
               type="text"
               placeholder="Course, topic, creator"
-              className={`
-                ${inter.className}
+              aria-label="Search courses"
+              className="
                 h-full w-full rounded-full
                 bg-white pl-11 pr-3
                 text-sm text-slate-900
@@ -113,15 +98,13 @@ const Hero = () => {
                 lg:pl-[3.9vw]
                 lg:pr-[1.4vw]
                 lg:text-[1.18vw]
-              `}
+              "
             />
           </div>
 
-          {/* Button */}
           <button
             type="button"
-            className={`
-              ${inter.className}
+            className="
               h-full shrink-0
               rounded-full bg-[#CCFF00]
               px-5 text-sm font-medium
@@ -134,13 +117,13 @@ const Hero = () => {
               lg:w-[22.3%]
               lg:px-0
               lg:text-[1.18vw]
-            `}
+            "
           >
             Search
           </button>
         </div>
 
-        {/* Ellipse */}
+        {/*============== Ellipse ===============*/}
         <Image
           src="/images/hero/ellipse.png"
           alt=""
@@ -155,7 +138,7 @@ const Hero = () => {
           "
         />
 
-        {/* Ornaments */}
+        {/*=============== Ornaments ===============*/}
         <Image
           src="/images/hero/ornaments.png"
           alt=""
@@ -173,7 +156,7 @@ const Hero = () => {
           "
         />
 
-        {/* Person */}
+        {/* ================Person ===============*/}
         <Image
           src="/images/hero/man.png"
           alt=""
@@ -182,9 +165,9 @@ const Hero = () => {
           priority
           className="
             absolute bottom-0 left-1/2
-            h-auto w-[55%] max-w-[300px]
+            h-auto w-[55%] max-w-75
             -translate-x-1/2
-            sm:w-[50%] sm:max-w-[350px]
+            sm:w-[50%] sm:max-w-87.5
             lg:left-[28.4%]
             lg:w-[50.6%]
             lg:max-w-none
@@ -192,7 +175,7 @@ const Hero = () => {
           "
         />
 
-        {/* UI/UX Card */}
+        {/* ===============UI/UX card ===============*/}
         <Image
           src="/images/hero/card-uiux.png"
           alt=""
@@ -207,7 +190,7 @@ const Hero = () => {
           "
         />
 
-        {/* Progress Card */}
+        {/* ==============Progress card ===================*/}
         <Image
           src="/images/hero/card-progress.png"
           alt=""
@@ -223,7 +206,7 @@ const Hero = () => {
           "
         />
 
-        {/* Students Card */}
+        {/*============== Students card ==================*/}
         <Image
           src="/images/hero/card-students.png"
           alt=""
@@ -240,6 +223,6 @@ const Hero = () => {
       </div>
     </section>
   );
-};
+}
 
 export default Hero;

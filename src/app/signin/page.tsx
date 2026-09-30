@@ -3,35 +3,38 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { Poppins } from "next/font/google";
+import type { FormEvent } from "react";
 
 import { Input } from "@/src/components/ui/input";
 import { Button } from "@/src/components/ui/button";
 import { Label } from "@/components/ui/label";
 
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-});
+const gridBackground = {
+  backgroundImage:
+    "linear-gradient(rgba(255,255,255,0.1) 2px, transparent 2px), linear-gradient(90deg, rgba(255,255,255,0.1) 2px, transparent 2px)",
+  backgroundSize: "8.333vw 8.333vw",
+};
 
-const SignInPage = () => {
+const inputClassName =
+  "h-12 rounded-lg border-gray-300 bg-white px-5 text-base shadow-none placeholder:text-gray-400 focus-visible:border-[#D4FF1F] focus-visible:ring-[#D4FF1F]/50";
+
+const socialButtonClassName =
+  "h-14 w-14 rounded-2xl border-2 border-gray-300 p-0";
+
+function SignInPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = (e: React.FormEvent) => {
+  function handleLogin(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     console.log({ email, password });
-  };
+  }
 
   return (
     <main
-      className={`${poppins.className} min-h-screen bg-[#0038F5] p-6`}
-      style={{
-        backgroundImage:
-          "linear-gradient(rgba(255,255,255,0.1) 2px, transparent 2px), linear-gradient(90deg, rgba(255,255,255,0.1) 2px, transparent 2px)",
-        backgroundSize: "8.333vw 8.333vw",
-      }}
+      className="min-h-screen bg-[#0038F5] p-6"
+      style={gridBackground}
     >
       <div className="mx-auto mt-10 flex max-w-7xl flex-col gap-10 lg:flex-row lg:justify-between">
         <div className="flex flex-col gap-6 text-white lg:w-1/2">
@@ -58,11 +61,11 @@ const SignInPage = () => {
             alt="Course preview"
             width={500}
             height={420}
-            className="mt-6 hidden h-[585px] w-full object-contain lg:block"
+            className="mt-6 hidden h-146.25 w-full object-contain lg:block"
           />
         </div>
 
-        <div className="flex min-h-[700px] w-full flex-col rounded-3xl bg-white p-8 sm:p-12 lg:w-[45%]">
+        <div className="flex min-h-175 w-full flex-col rounded-3xl bg-white p-8 sm:p-12 lg:w-[45%]">
           <p className="text-[#0038F5]">Welcome Back</p>
 
           <h1 className="mt-1 text-4xl font-semibold text-gray-900">
@@ -81,7 +84,7 @@ const SignInPage = () => {
                 placeholder="designer@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="h-12 rounded-lg border-gray-300 bg-white px-5 text-base shadow-none placeholder:text-gray-400"
+                className={inputClassName}
               />
             </div>
 
@@ -94,7 +97,7 @@ const SignInPage = () => {
                 placeholder="********"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="h-12 rounded-lg border-gray-300 bg-white px-5 text-base shadow-none placeholder:text-gray-400"
+                className={inputClassName}
               />
             </div>
 
@@ -110,7 +113,7 @@ const SignInPage = () => {
             <div className="flex justify-end">
               <Button
                 type="submit"
-                className="h-12 rounded-full bg-[#D4FF1F] px-10 text-base font-medium text-gray-900 hover:bg-[#D4FF1F]/90"
+                className="h-12 rounded-full bg-[#D4FF1F] px-10 text-base font-medium text-gray-900 hover:bg-[#D4FF1F]/90 focus-visible:ring-[#D4FF1F]/50"
               >
                 Login
               </Button>
@@ -128,7 +131,7 @@ const SignInPage = () => {
               <Button
                 type="button"
                 variant="outline"
-                className="h-14 w-14 rounded-2xl border-2 border-gray-300 p-0"
+                className={socialButtonClassName}
               >
                 <svg
                   className="size-7"
@@ -158,7 +161,7 @@ const SignInPage = () => {
               <Button
                 type="button"
                 variant="outline"
-                className="h-14 w-14 rounded-2xl border-2 border-gray-300 p-0"
+                className={socialButtonClassName}
               >
                 <svg
                   className="size-7"
@@ -177,10 +180,7 @@ const SignInPage = () => {
 
           <p className="mt-auto flex justify-center gap-2 pt-8 text-sm text-gray-600">
             Don&apos;t have an account?
-            <Link
-              href="/signup"
-              className="text-[#0038F5] hover:underline"
-            >
+            <Link href="/signup" className="text-[#0038F5] hover:underline">
               Sign up
             </Link>
           </p>
@@ -188,6 +188,6 @@ const SignInPage = () => {
       </div>
     </main>
   );
-};
+}
 
 export default SignInPage;

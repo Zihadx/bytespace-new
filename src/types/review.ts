@@ -1,1 +1,0 @@
-// Review, RatingSummary types.

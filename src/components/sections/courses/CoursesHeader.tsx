@@ -17,7 +17,7 @@ const CoursesHero = () => {
 
       <form
         role="search"
-        className="mx-auto mt-7 flex max-w-[680px] items-center gap-3"
+        className="mx-auto mt-7 flex max-w-170 items-center gap-3"
       >
         {/* ========Search input========= */}
         <label className="flex h-12 flex-1 items-center gap-3 rounded-full bg-white px-5">

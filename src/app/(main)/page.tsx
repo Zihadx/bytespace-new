@@ -11,11 +11,11 @@ const Home = () => {
     <div>
       <Hero />
       <Partnership />
-      <FeaturedCourses/>
+      <FeaturedCourses />
       <Categories />
       <GrowthPath />
-      <CreatorCTA/>
-      <Testimonials/>
+      <CreatorCTA />
+      <Testimonials />
     </div>
   );
 };

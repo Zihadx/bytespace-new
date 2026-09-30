@@ -12,8 +12,8 @@ export type Creator = {
 
 const CreatorHero = ({ creator }: { creator: Creator }) => {
   return (
-    <GridBackground className="px-6 pb-[82px] pt-[172px]">
-      <div className="mx-auto max-w-[1200px]">
+    <GridBackground className="px-6 pb-20.5 pt-43">
+      <div className="mx-auto max-w-300">
         {/* ========== Creator Avtar + name=========== */}
         <div className="flex items-start gap-6">
           <Image
@@ -37,14 +37,14 @@ const CreatorHero = ({ creator }: { creator: Creator }) => {
         </div>
 
         {/* ===========Bio========= */}
-        <div className="mt-[50px] space-y-0 text-[17px] font-light leading-[29px]">
+        <div className="mt-12.5 space-y-0 text-[17px] font-light leading-7.25">
           {creator.bio.map((line) => (
             <p key={line}>{line}</p>
           ))}
         </div>
 
         {/* =============Stats + follow========= */}
-        <div className="mt-[50px] flex flex-wrap items-center justify-between gap-4">
+        <div className="mt-12.5 flex flex-wrap items-center justify-between gap-4">
           <div className="flex gap-4">
             <Stat value={creator.products} label="Products" />
             <Stat value={creator.followers} label="Followers" />

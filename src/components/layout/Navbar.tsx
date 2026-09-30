@@ -4,14 +4,25 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-const Navbar = () => {
+const mainLinks = [
+  { label: "Home", href: "/" },
+  { label: "Courses", href: "/courses" },
+  { label: "Creators", href: "/creators" },
+];
+
+const accountLinks = [
+  { label: "Sign In", href: "/signin" },
+  { label: "Join Us", href: "/signup" },
+];
+
+function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
+    function handleScroll() {
       setIsScrolled(window.scrollY > 20);
-    };
+    }
 
     window.addEventListener("scroll", handleScroll);
 
@@ -19,6 +30,10 @@ const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  function closeMenu() {
+    setIsMenuOpen(false);
+  }
 
   return (
     <header
@@ -29,11 +44,10 @@ const Navbar = () => {
       }`}
     >
       <nav className="custom-container mx-auto flex h-20 items-center justify-between">
-        {/*========== Logo =======*/}
         <Link
           href="/"
           aria-label="ByteSpace home"
-          className="flex items-center gap-2.5"
+          className="flex items-center gap-2"
         >
           <Image
             src="/images/logo_vector.png"
@@ -43,50 +57,35 @@ const Navbar = () => {
             className="h-8 w-8"
           />
 
-          <span className="text-xl font-bold text-white sm:text-2xl">
+          <h1 className="text-xl font-bold text-white sm:text-2xl">
             ByteSpace
-          </span>
+          </h1>
         </Link>
 
-        {/* =====Desktop Navigation ===========*/}
+        {/* Desktop links */}
         <div className="hidden items-center gap-7 md:flex">
-          <Link
-            href="/"
-            className="text-sm text-white transition-opacity hover:opacity-70"
-          >
-            Home
-          </Link>
-
-          <Link
-            href="/courses"
-            className="text-sm text-white transition-opacity hover:opacity-70"
-          >
-            Courses
-          </Link>
-
-          <Link
-            href="/creators"
-            className="text-sm text-white transition-opacity hover:opacity-70"
-          >
-            Creators
-          </Link>
+          {mainLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="text-sm text-white transition-opacity hover:opacity-70"
+            >
+              {link.label}
+            </Link>
+          ))}
         </div>
 
-        {/* =======Desktop Right=========== */}
+        {/* Desktop account links and cart */}
         <div className="hidden items-center gap-7 md:flex">
-          <Link
-            href="/signin"
-            className="text-sm text-white transition-opacity hover:opacity-70"
-          >
-            Sign In
-          </Link>
-
-          <Link
-            href="/join"
-            className="text-sm text-white transition-opacity hover:opacity-70"
-          >
-            Join Us
-          </Link>
+          {accountLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="text-sm text-white transition-opacity hover:opacity-70"
+            >
+              {link.label}
+            </Link>
+          ))}
 
           <Link
             href="/cart"
@@ -103,7 +102,6 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* ========Mobile Menu Button ============*/}
         <button
           type="button"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -131,55 +129,36 @@ const Navbar = () => {
         </button>
       </nav>
 
-      {/* =======Mobile Menu ==========*/}
       {isMenuOpen && (
         <div className="border-t border-white/10 bg-black/90 backdrop-blur-md md:hidden">
           <div className="custom-container mx-auto flex flex-col gap-5 py-6">
-            <Link
-              href="/"
-              onClick={() => setIsMenuOpen(false)}
-              className="text-sm text-white"
-            >
-              Home
-            </Link>
-
-            <Link
-              href="/courses"
-              onClick={() => setIsMenuOpen(false)}
-              className="text-sm text-white"
-            >
-              Courses
-            </Link>
-
-            <Link
-              href="/creators"
-              onClick={() => setIsMenuOpen(false)}
-              className="text-sm text-white"
-            >
-              Creators
-            </Link>
+            {mainLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={closeMenu}
+                className="text-sm text-white"
+              >
+                {link.label}
+              </Link>
+            ))}
 
             <div className="h-px bg-white/10" />
 
-            <Link
-              href="/signin"
-              onClick={() => setIsMenuOpen(false)}
-              className="text-sm text-white"
-            >
-              Sign In
-            </Link>
-
-            <Link
-              href="/join"
-              onClick={() => setIsMenuOpen(false)}
-              className="text-sm text-white"
-            >
-              Join Us
-            </Link>
+            {accountLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={closeMenu}
+                className="text-sm text-white"
+              >
+                {link.label}
+              </Link>
+            ))}
 
             <Link
               href="/cart"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={closeMenu}
               className="flex items-center gap-2 text-sm text-white"
             >
               <Image
@@ -187,7 +166,7 @@ const Navbar = () => {
                 alt=""
                 width={22}
                 height={22}
-                className="h-[22px] w-[22px]"
+                className="h-5.5 w-5.5"
               />
 
               Cart
@@ -197,7 +176,6 @@ const Navbar = () => {
       )}
     </header>
   );
-};
+}
 
 export default Navbar;
-

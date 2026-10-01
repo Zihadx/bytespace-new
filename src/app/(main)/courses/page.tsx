@@ -17,7 +17,7 @@ const CoursesPage = () => {
     <main className="bg-white">
       <CoursesHero />
 
-      <div className="mx-auto max-w-[1100px] px-6 pb-20 pt-14">
+      <div className="mx-auto max-w-7xl px-6 pb-20 pt-14">
         <CourseFilters categories={categories} />
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {courses.slice(0, 18).map((course) => (

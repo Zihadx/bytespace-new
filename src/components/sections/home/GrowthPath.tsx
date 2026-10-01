@@ -65,7 +65,7 @@ export default function GrowthPath() {
               alt="Student learning online"
               width={580}
               height={552}
-              className="h-auto w-full max-w-145"
+              className="h-auto lg:w-155.25 w-full"
             />
           </div>
         </div>
@@ -78,7 +78,7 @@ export default function GrowthPath() {
               alt="Creator managing courses"
               width={580}
               height={552}
-              className="h-auto w-full max-w-145"
+              className="h-auto lg:w-135.25 w-full"
             />
           </div>
 

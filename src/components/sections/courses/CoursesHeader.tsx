@@ -11,7 +11,7 @@ const CoursesHero = () => {
         backgroundPosition: "center top",
       }}
     >
-      <h1 className="text-[34px] font-bold tracking-tight text-white sm:text-[40px]">
+      <h1 className="text-[34px] mt-2 md:mt-10 font-bold tracking-tight text-white sm:text-[40px]">
         Find Your Next Course
       </h1>
 

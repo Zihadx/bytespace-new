@@ -80,7 +80,7 @@ function Categories() {
                 alt=""
                 width={40}
                 height={40}
-                className="size-8 object-contain lg:size-[1.9vw]"
+                className="size-8 object-contain lg:size-9"
               />
             </div>
 

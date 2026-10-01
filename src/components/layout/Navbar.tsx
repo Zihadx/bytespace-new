@@ -57,7 +57,7 @@ function Navbar() {
             className="h-8 w-8"
           />
 
-          <h1 className="text-xl font-bold text-white sm:text-2xl">
+          <h1 className="text-2xl font-bold text-white">
             ByteSpace
           </h1>
         </Link>

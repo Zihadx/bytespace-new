@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Course } from "@/src/types/course";
+import { ChartNoAxesColumnIncreasing } from "lucide-react";
 
 interface CourseCardProps {
   course: Course;
@@ -71,22 +72,9 @@ function CourseCard({ course }: CourseCardProps) {
         </div>
 
         {/* ===========Level and students==============*/}
-        <div className="mt-4 flex items-center justify-between gap-2">
+        <div className="mt-4 flex items-center gap-2">
           <span className="inline-flex h-8.5 items-center gap-2 rounded-full bg-[#F3F3F5] px-4 text-[13px] font-medium text-[#55555D]">
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.2"
-              strokeLinecap="round"
-              aria-hidden="true"
-            >
-              <path d="M4 20v-8" />
-              <path d="M10 20V4" />
-              <path d="M16 20v-9" />
-            </svg>
+           <ChartNoAxesColumnIncreasing strokeWidth={3} />
 
             {course.level}
           </span>
@@ -117,7 +105,7 @@ function CourseCard({ course }: CourseCardProps) {
           </span>
 
           <span className="text-[12px] font-normal text-[#6B6B73]">
-            {course.priceType}
+            /{course.priceType}
           </span>
         </div>
       </div>

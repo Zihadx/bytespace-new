@@ -69,7 +69,7 @@ function Categories() {
             <div
               className="
                 flex size-16 items-center justify-center
-                rounded-full bg-[#D4FF1E]
+                rounded-full bg-[#D4FB20]
                 transition-transform duration-300 ease-out
                 group-hover:scale-105
                 lg:size-[4.2vw]

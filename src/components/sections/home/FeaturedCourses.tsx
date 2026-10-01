@@ -32,9 +32,9 @@ function FeaturedCourses() {
 
           <p className="mt-4 text-[18px] leading-6 text-[#82868E] md:text-base md:leading-7">
             At Bytespace Courses, we bring you closer to life-changing
-            knowledge. Explore a variety of courses across different
-            fields, from technology to the arts, and make a difference
-            in your career and life.
+            knowledge. Explore a variety of courses across different fields,
+            from technology to the arts, and make a difference in your career
+            and life.
           </p>
         </div>
 
@@ -51,7 +51,7 @@ function FeaturedCourses() {
                 aria-pressed={isActive}
                 className={`rounded-full px-4 py-2.5 text-[16px] font-medium transition-colors duration-200 ${
                   isActive
-                    ? "bg-[#B7F500] text-[#171717]"
+                    ? "bg-[#D4FB20] text-[#171717]"
                     : "bg-[#F4F4F5] text-[#4B4C53] hover:bg-gray-200"
                 }`}
               >

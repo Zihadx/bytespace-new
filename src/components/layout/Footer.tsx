@@ -47,7 +47,7 @@ function Footer() {
 
               <button
                 type="submit"
-                className="h-13 w-full shrink-0 rounded-full bg-[#CBFC01] text-base leading-6 text-black transition-opacity hover:opacity-80 sm:h-11.5 sm:w-26"
+                className="h-13 w-full shrink-0 rounded-full bg-[#D4FB20] text-base leading-6 text-black transition-opacity hover:opacity-80 sm:h-11.5 sm:w-26"
               >
                 Subscribe
               </button>
@@ -58,8 +58,6 @@ function Footer() {
               receive updates from our company.
             </p>
           </div>
-
-          {/* Link columns: 2 on phones, 3 from sm, spread out on desktop */}
           <div className="grid w-full grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:mt-10 lg:flex lg:w-1/2 lg:justify-between">
             {linkColumns.map((column, index) => (
               <ul

@@ -106,10 +106,10 @@ function Hero() {
             type="button"
             className="
               h-full shrink-0
-              rounded-full bg-[#CCFF00]
+              rounded-full bg-[#D4FB20]
               px-5 text-sm font-medium
               text-black transition
-              hover:bg-[#bff000]
+              hover:bg-[#D4FB20]/80
               sm:px-6 sm:text-[15px]
               lg:absolute lg:left-[104%]
               lg:top-[5.5%]

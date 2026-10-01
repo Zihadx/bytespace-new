@@ -62,7 +62,7 @@ function Navbar() {
           </h1>
         </Link>
 
-        {/* Desktop links */}
+        {/* ======Desktop links======= */}
         <div className="hidden items-center gap-7 md:flex">
           {mainLinks.map((link) => (
             <Link
@@ -75,7 +75,7 @@ function Navbar() {
           ))}
         </div>
 
-        {/* Desktop account links and cart */}
+        {/* ========Desktop account links and cart ============*/}
         <div className="hidden items-center gap-7 md:flex">
           {accountLinks.map((link) => (
             <Link

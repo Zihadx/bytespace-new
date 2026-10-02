@@ -17,24 +17,6 @@ const gridStyle: CSSProperties = {
   backgroundSize: "var(--grid-w) var(--grid-h)",
 };
 
-const topBandStyle: CSSProperties = {
-  backgroundImage: ornamentUrl,
-  backgroundSize: "100% auto",
-  backgroundPosition: "top center",
-  backgroundRepeat: "no-repeat",
-  WebkitMaskImage: "linear-gradient(to bottom, #000 55%, transparent 100%)",
-  maskImage: "linear-gradient(to bottom, #000 55%, transparent 100%)",
-};
-
-const bottomBandStyle: CSSProperties = {
-  backgroundImage: ornamentUrl,
-  backgroundSize: "100% auto",
-  backgroundPosition: "bottom center",
-  backgroundRepeat: "no-repeat",
-  WebkitMaskImage: "linear-gradient(to top, #000 55%, transparent 100%)",
-  maskImage: "linear-gradient(to top, #000 55%, transparent 100%)",
-};
-
 function CreatorCTA() {
   return (
     <section className="relative overflow-hidden bg-[#0037e0] px-5 text-center text-white sm:px-8 lg:h-147 lg:px-6">
@@ -45,27 +27,12 @@ function CreatorCTA() {
         style={gridStyle}
       />
 
-      {/* ===========Ornament 3D elements on desktop ==========*/}
+      {/* ===========Ornament 3D elements ==========*/}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 hidden bg-cover bg-center lg:block"
         style={{ backgroundImage: ornamentUrl }}
       />
-
-      {/* =============Ornament 3D elements on mobile and tablet view========*/}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 lg:hidden"
-      >
-        <div
-          className="absolute inset-x-0 top-0 h-[34%] opacity-80"
-          style={topBandStyle}
-        />
-        <div
-          className="absolute inset-x-0 bottom-0 h-[34%] opacity-80"
-          style={bottomBandStyle}
-        />
-      </div>
 
       <div className="custom-container relative z-10 mx-auto flex h-full min-h-140 flex-col items-center justify-center py-20 sm:py-24 lg:min-h-0 lg:py-0">
         <h2 className="max-w-[320px] text-[44px] font-semibold leading-[1.15] tracking-[-0.02em] text-[#F5F5F6] sm:max-w-125 sm:text-[38px] md:max-w-140 md:text-[42px] lg:max-w-150 lg:text-[44px]">

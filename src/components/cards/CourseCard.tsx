@@ -25,11 +25,11 @@ function CourseCard({ course }: CourseCardProps) {
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
 
-        <div className="absolute inset-x-3 bottom-3 flex items-center justify-between gap-1.5">
+        <div className="absolute inset-x-3 bottom-3 flex items-center justify-between gap-1.5 max-sm:inset-x-2 max-sm:bottom-2 max-sm:gap-1">
           {stats.map((stat) => (
             <span
               key={stat}
-              className="whitespace-nowrap rounded-full bg-white/75 px-3 py-1.25 text-[12px] font-medium leading-4 text-[#4A4A52] backdrop-blur-md"
+              className="whitespace-nowrap rounded-full bg-white/75 px-3 py-1.25 text-[12px] font-medium leading-4 text-[#4A4A52] backdrop-blur-md max-sm:min-w-0 max-sm:flex-1 max-sm:overflow-hidden max-sm:px-1.5 max-sm:py-1 max-sm:text-[10px] max-sm:leading-3.5 max-sm:text-center max-sm:text-ellipsis"
             >
               {stat}
             </span>
@@ -74,7 +74,7 @@ function CourseCard({ course }: CourseCardProps) {
         {/* ===========Level and students==============*/}
         <div className="mt-4 flex items-center gap-2">
           <span className="inline-flex h-8.5 items-center gap-2 rounded-full bg-[#F3F3F5] px-4 text-[13px] font-medium text-[#55555D]">
-           <ChartNoAxesColumnIncreasing strokeWidth={3} />
+            <ChartNoAxesColumnIncreasing strokeWidth={3} />
 
             {course.level}
           </span>

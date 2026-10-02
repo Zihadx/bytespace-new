@@ -146,7 +146,7 @@ function Hero() {
           height={873}
           priority
           className="
-            absolute left-1/2 bottom-0
+            absolute left-1/2
             h-auto w-[145%] max-w-none
             -translate-x-1/2
             sm:w-[125%]
